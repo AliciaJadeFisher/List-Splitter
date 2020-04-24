@@ -10,3 +10,24 @@
 (defn split [lis]
   (let [{numbers true symbols false} (group-by number? (flatten lis))]
   (assoc {} :numbers numbers :symbols symbols)))
+
+;; Tail Recursion
+;; The function is passed a list, which is flattened when re-called with the two empty lists for nunbers and symbols
+;; The function first checks if the list is empty, if it is then is associates the two lists into a map and returns it 
+;; It then checks if the first element in the list is a number
+;; If it is then it adds the element to the number list and recurs on the rest of the initial list
+;; The last check is if the first element in the list is a symbol
+;; If it is then it adds the element to the symbol list and recurs on the rest of the initial list
+;; This will repeat until the base case is reached
+(defn split-recur 
+  ([lis] (split-recur (flatten lis) [] []))
+  ([lis num sym]
+  (cond
+  (empty? lis) 
+    (assoc {} :numbers num :symbols sym)
+  (number? (first lis))
+    (split-recur (rest lis) (conj num (first lis)) sym)
+  (symbol? (first lis))
+    (split-recur (rest lis) num (conj sym (first lis))))))
+
+
