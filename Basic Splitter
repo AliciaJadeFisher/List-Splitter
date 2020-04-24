@@ -3,6 +3,13 @@
 (def my-list2 '(4 5 (dog cat (6 (hello) 9) mango spam (rat))10 11))
 (def my-list3 '( 9 ((3 5 dog rat (hello 7 8 9 )) spam) cat))
 
+;; Test method
+(defn test-a [lis]
+  (println "TESTING METHOD : split"
+  (split lis))
+  (println "TESTING METHOD : split-recur"
+  (split-recur lis)))
+
 ;; Takes a sequence as an input and flattens it first
 ;; Then the list is grouped into numbers if true and symbols if false
 ;; Destructuring is used to assign true and false to numbers and symbols
