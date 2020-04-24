@@ -1,1 +1,4 @@
-
+;; Input trees
+(def my-list '(1 (-2 dog 17 (4) cat) -8 (rat -6 13) mango))
+(def my-list2 '(4 5 (dog cat (6 (hello) 9) mango spam (rat))10 11))
+(def my-list3 '( 9 ((3 5 dog rat (hello 7 8 9 )) spam) cat))
